@@ -1,8 +1,13 @@
 document.getElementById('productForm').addEventListener('submit', function (e) {
     e.preventDefault();
     const formData = new FormData(this);
-    postData('products', formData);
+    const productData = {
+        prod: formData.get('prod'),
+        price: formData.get('price')
+    };
+    postData('products', productData);
 });
+
 
 document.getElementById('updateProductForm').addEventListener('submit', function (e) {
     e.preventDefault();
@@ -21,7 +26,11 @@ document.getElementById('deleteProductForm').addEventListener('submit', function
 document.getElementById('clientForm').addEventListener('submit', function (e) {
     e.preventDefault();
     const formData = new FormData(this);
-    postData('clients', formData);
+    const clientData = {
+        name: formData.get('name'),
+        email: formData.get('email')
+    };
+    postData('clients', clientData);
 });
 
 document.getElementById('updateClientForm').addEventListener('submit', function (e) {
@@ -31,6 +40,8 @@ document.getElementById('updateClientForm').addEventListener('submit', function 
     const newEmail = document.getElementById('newEmail').value;
     updateData('clients', clientId, newName, newEmail);
 });
+
+
 
 document.getElementById('deleteClientForm').addEventListener('submit', function (e) {
     e.preventDefault();
@@ -43,14 +54,11 @@ document.getElementById('saleForm').addEventListener('submit', function (e) {
     const formData = new FormData(this);
     const saleData = {
         client_id: formData.get('clientId'),
-        date: formData.get('saleDate'),
-        products: {
-            product_id: formData.get('productId'),
-        }
+        saleDate: formData.get('saleDate'), 
+        product_id: formData.get('productId') 
     };
     postData('sales', saleData);
 });
-
 document.getElementById('deleteSaleForm').addEventListener('submit', function (e) {
     e.preventDefault();
     const saleIdToDelete = document.getElementById('saleIdToDelete').value;
