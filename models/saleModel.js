@@ -1,14 +1,14 @@
 const fs = require('fs');
 const path = require('path');
-const clientsData = require('../data/clients.json');
+const salesData = require('../data/sales.json');
 
-function readClients() {
-  return clientsData.list;
+function readSales() {
+  return salesData.list;
 }
 
-function writeClients(clients) {
-  clientsData.list = clients;
-  updateData('clients.json', clientsData);
+function writeSales(sales) {
+  salesData.list = sales;
+  updateData('sales.json', salesData);
 }
 
 function updateData(filename, data) {
@@ -16,4 +16,4 @@ function updateData(filename, data) {
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 }
 
-module.exports = { readClients, writeClients };
+module.exports = { readSales, writeSales };
