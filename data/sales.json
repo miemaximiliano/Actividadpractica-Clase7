@@ -1,0 +1,26 @@
+{
+  "list": [
+    {
+      "client_id": "12",
+      "date": "2023-11-01",
+      "products": {
+        "product_id": "1"
+      },
+      "id": 2
+    },
+    {
+      "client_id": "13",
+      "date": "2023-11-01",
+      "products": {
+        "product_id": "90"
+      },
+      "id": 2
+    },
+    {
+      "client_id": "50",
+      "saleDate": "2023-10-16",
+      "product_id": "50",
+      "id": 3
+    }
+  ]
+}
